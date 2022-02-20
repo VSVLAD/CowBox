@@ -282,6 +282,7 @@ void loop() {
             break;
 
         case MENU_TYPE_NOTE:
+            return;
             break;
 
     } // End Switch

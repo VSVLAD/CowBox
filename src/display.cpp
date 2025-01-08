@@ -2,7 +2,7 @@
 #include "display.h"
 #include "settings.h"
 #include "notes.h"
-#include "MemoryFree.h"
+//#include "MemoryFree.h"
 
 GyverOLED<SSD1306_128x32, OLED_BUFFER, OLED_I2C> display;
 

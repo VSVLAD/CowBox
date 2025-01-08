@@ -1,7 +1,36 @@
 #include "main.h"
 #include "settings.h"
 
-EncButton<EB_TICK, A1, A2, A3> encoder;
+EncButton encoder(A1, A2, A3);
+
+// Кастомные обработки пользовательских заметок ///////
+const char messageP1[] PROGMEM = "Кажду минуту <ESC>";
+
+void PressEscapeEveryMinute(){
+    char bufferMessage[30];
+    DrawMenuMessage(GetStringPgm(messageP1, bufferMessage));
+
+    unsigned long timeoutCounter = millis() + (60 * 1000UL);
+
+    // Ожидаем действия от пользователя
+    while(true) {
+        encoder.tick();
+        
+        // При нажатии выходим из работы заметки
+        if (encoder.click())
+            return;
+
+        // Сбрасываем счётчик и выполняем рабочую нагрузку
+        if (millis() >= timeoutCounter){
+            timeoutCounter = millis() + (60 * 1000UL);
+
+            Keyboard.press(KEY_ESC);
+            Keyboard.release(KEY_ESC);
+        }
+    }
+}
+
+///////////////////////////////////////////////////////
 
 
 // Настраиваем
@@ -10,6 +39,9 @@ void setup() {
     // Отключаем светодиоды
     pinMode(LED_BUILTIN_TX, INPUT);
     pinMode(LED_BUILTIN_RX, INPUT);
+
+    // Настраиваем энкодер
+    encoder.setEncType(EB_STEP2);
 
     // Инициализация клавиатуры
     Keyboard.begin();
@@ -91,7 +123,7 @@ void loop() {
                 DrawMenuFolder(m);
             }
 
-            if (encoder.held())
+            if (encoder.hold())
                 GoFolderRoot();
 
             if (encoder.click()) {
@@ -273,7 +305,7 @@ void loop() {
             }
                 
             // Загрузка и восстановление настроек и вверх в меню настроек
-            if (encoder.held()) {
+            if (encoder.hold()) {
                 LoadSettings();
                 ApplySettings();
                 GoFolderSelectedItem();
@@ -365,7 +397,7 @@ void GoAutoProcessor(const MenuItem m, uint8_t step = 1) {
             break;        
 
         // Отмена
-        if (encoder.held())
+        if (encoder.hold())
             return;
     }
     #endif
@@ -405,7 +437,9 @@ void GoAutoProcessor(const MenuItem m, uint8_t step = 1) {
 
 // Обработка пользовательских заметок >> Здесь <<
 void GoCustomProcessor(const MenuItem m) {
-
+    if (strcasecmp(m.login, "P1") == 0) {
+        PressEscapeEveryMinute();
+    }
 }
 
 
@@ -496,7 +530,7 @@ bool GoCheckPassword(const char masterPassword[5]) {
             }
             
             // Возврат на предыдущее число
-            if (encoder.held()){
+            if (encoder.hold()){
                 if (numberPosition > 0) numberPosition--;
 
                 GlobalCursorY = userPassword[numberPosition] - zero;
@@ -517,3 +551,5 @@ void delayMillis(uint32_t ns) {
     uint32_t tmr = millis();
     while (millis() - tmr < ns);
 }
+
+

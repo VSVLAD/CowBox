@@ -1,7 +1,74 @@
 {
-    "files.associations": {
-        "pins_arduino.h": "c",
-        "wiring_private.h": "c",
-        "arduino.h": "c"
-    }
+  "C_Cpp_Runner.cCompilerPath": "C:/Users/Vladilen/.platformio/packages/toolchain-atmelavr/bin/avr-gcc.exe",
+  "C_Cpp_Runner.cppCompilerPath": "C:/Users/Vladilen/.platformio/packages/toolchain-atmelavr/bin/avr-g++.exe",
+  "C_Cpp_Runner.debuggerPath": "C:/Users/Vladilen/.platformio/packages/toolchain-atmelavr/bin/avr-gdb.exe",
+  "C_Cpp_Runner.cStandard": "gnu11",
+  "C_Cpp_Runner.cppStandard": "gnu++11",
+  "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Auxiliary/Build/vcvarsall.bat",
+  "C_Cpp_Runner.useMsvc": false,
+  "C_Cpp_Runner.warnings": [
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Wshadow",
+    "-Wformat=2",
+    "-Wcast-align",
+    "-Wconversion",
+    "-Wsign-conversion",
+    "-Wnull-dereference"
+  ],
+  "C_Cpp_Runner.msvcWarnings": [
+    "/W4",
+    "/permissive-",
+    "/w14242",
+    "/w14287",
+    "/w14296",
+    "/w14311",
+    "/w14826",
+    "/w44062",
+    "/w44242",
+    "/w14905",
+    "/w14906",
+    "/w14263",
+    "/w44265",
+    "/w14928"
+  ],
+  "C_Cpp_Runner.enableWarnings": true,
+  "C_Cpp_Runner.warningsAsError": false,
+  "C_Cpp_Runner.compilerArgs": [],
+  "C_Cpp_Runner.linkerArgs": [],
+  "C_Cpp_Runner.includePaths": [
+    "e:/ARDUINO/CowBoxPrivate/include",
+    "e:/ARDUINO/CowBoxPrivate/src",
+    "e:/ARDUINO/CowBoxPrivate/lib/Keyboard/src",
+    "C:/Users/Vladilen/.platformio/packages/framework-arduino-avr/libraries/HID/src",
+    "e:/ARDUINO/CowBoxPrivate/lib/EncButton/src",
+    "C:/Users/Vladilen/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
+    "e:/ARDUINO/CowBoxPrivate/lib/GyverOLED/src",
+    "C:/Users/Vladilen/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+    "C:/Users/Vladilen/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+    "e:/ARDUINO/CowBoxPrivate/lib/MemoryFree/src",
+    "C:/Users/Vladilen/.platformio/packages/framework-arduino-avr/cores/arduino",
+    "C:/Users/Vladilen/.platformio/packages/framework-arduino-avr/variants/micro",
+    "C:/Users/Vladilen/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
+    ""
+  ],
+  "C_Cpp_Runner.includeSearch": [
+    "*",
+    "**/*"
+  ],
+  "C_Cpp_Runner.excludeSearch": [
+    "**/build",
+    "**/build/**",
+    "**/.*",
+    "**/.*/**",
+    "**/.vscode",
+    "**/.vscode/**"
+  ],
+  "C_Cpp_Runner.useAddressSanitizer": false,
+  "C_Cpp_Runner.useUndefinedSanitizer": false,
+  "C_Cpp_Runner.useLeakSanitizer": false,
+  "C_Cpp_Runner.showCompilationTime": false,
+  "C_Cpp_Runner.useLinkTimeOptimization": false,
+  "C_Cpp_Runner.msvcSecureNoWarnings": false
 }

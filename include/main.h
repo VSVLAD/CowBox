@@ -1,15 +1,18 @@
 #pragma once
 
 #define PLATFORM_RESET() asm("JMP 0")
-#define EB_BETTER_ENC
-#define EB_HALFSTEP_ENC
+#define EB_NO_FOR           // отключить поддержку pressFor/holdFor/stepFor и счётчик степов (экономит 2 байта оперативки)
+#define EB_NO_CALLBACK      // отключить обработчик событий attach (экономит 2 байта оперативки)
+#define EB_NO_COUNTER       // отключить счётчик энкодера (экономит 4 байта оперативки)
+//#define EB_NO_BUFFER        // отключить буферизацию энкодера (экономит 1 байт оперативки)
+
 //#define MORE_MENU_ITEMS
 
 #include <Arduino.h>
 #include <Keyboard.h>
-#include "EncButton.h"
+#include <EncButton.h>
 #include "display.h"
-#include "MemoryFree.h"
+//#include "MemoryFree.h"
 
 // Управление курсором
 void GoCursorUp();
